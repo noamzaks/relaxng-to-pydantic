@@ -1,0 +1,24 @@
+[project]
+name = "relaxng-to-pydantic"
+version = "0.1.0"
+description = "Generate Pydantic XML classes from RelaxNG schemas"
+readme = "README.md"
+authors = [{ name = "Noam Zaks", email = "noam@noamzaks.com" }]
+requires-python = ">=3.10"
+dependencies = ["pydantic>=2.13.4", "pydantic-xml>=2.21.0"]
+
+[project.scripts]
+relaxng-to-pydantic = "relaxng_to_pydantic:main"
+
+[build-system]
+requires = ["uv_build>=0.11.7,<0.12.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = ["pre-commit>=4.6.0", "pytest>=9.1.1", "ty>=0.0.61"]
+
+[tool.pytest.ini_options]
+log_cli_level = "INFO"
+
+[tool.ty.src]
+exclude = ["generated"]
